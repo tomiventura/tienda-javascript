@@ -1,24 +1,12 @@
-function calcularCostoTotal() {
-    let costoTotal = 0;
-    let continuar = true;
+/* 2da preentrega Curso Javascript CoderHouse */
 
-    while (continuar) {
-        let costoProducto = prompt("Ingrese el costo del producto (o 'fin' para terminar):");
+const productos = [
+    { nombre: "Camiseta River", precio: 47000 },
+    { nombre: "Camiseta Real Madrid", precio: 40000 },
+    { nombre: "Camiseta Manchester City", precio: 43000 },
+    { nombre: "Camiseta PSG", precio: 35000 },
+];
 
-        if (costoProducto === null || costoProducto.toLowerCase() === "fin") {
-        continuar = false;
-        } else {
-        let costo = Number(costoProducto.replace(",", "."));
+let productoAComprar = prompt("Ingrese el producto que quiera comprar");
 
-        if (Number.isNaN(costo)) {
-            alert("Ingrese un valor numérico válido.");
-        } else {
-            costoTotal += costo;
-        }
-    }
-    }
-
-    alert("El costo total es: $" + costoTotal.toFixed(2));
-}
-
-calcularCostoTotal();
+console.log( productos.find((producto) => producto.nombre === productoAComprar ) );
