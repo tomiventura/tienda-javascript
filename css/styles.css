@@ -4,11 +4,130 @@
     box-sizing: border-box;
 }
 
+.navbar{
+    list-style: none;
+    
+}
+
+.nav-item {
+    padding: 1rem;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.bodyTienda {
+    width: 100%;
+}
+
 .card {
-    width: 190px;
+    width: 20%; 
     height: 254px;
     background: rgb(236, 236, 236);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     margin: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 10rem;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+}
+
+.botonComprar {
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: black;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    padding: 12px;
+}
+
+.botonComprar:hover{
+    opacity: 0.7;
+}
+
+.modal-container{
+    width: 80%;
+    margin: 0 10%;
+    max-height: 88vh;
+    color: #fff;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    top: 12vh;
+    scrollbar-color: none;
+}
+
+.modal-container::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: #fff;
+    width: 100%;
+}
+
+.modal-header-title {
+    justify-self: center;
+}
+
+.modal-header-button {
+    cursor: pointer;
+}
+
+.modal-container > .modal-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: 10px;
+}
+
+.modal-container > div > img {
+    height: 120px;
+    width: 120px;
+}
+
+.total-content {
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.delete-product {
+    cursor: pointer;
+}
+
+.cantidad-carrito {
+    background-color: red;
+    color: white;
+    border-radius: 45%;
+    font-size: 12px;
+    padding: 4px;
+    top: 37px;
+    right: 14px;
+    position: absolute;
+    display: none;
+}
+
+.sumar {
+    cursor: pointer;
+}
+
+.restar {
+    cursor: pointer;
 }
