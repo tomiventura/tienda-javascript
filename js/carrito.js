@@ -1,4 +1,4 @@
-    const pintarCarrito = () => {
+const pintarCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
     const modalHeader = document.createElement("div");
@@ -70,27 +70,40 @@
 
 verCarrito.addEventListener("click", pintarCarrito)
 
-const eliminarProducto = () => {
-    const foundNombre = carrito.find((element)=> element.nombre)
+const eliminarProducto = (e) => {
 
+    Swal.fire({
+        title: '¿Estas seguro que quieres borrar el producto de tu carrito?',
+        icon: 'question',
+        html: 'Se borraran los productos seleccionados',
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const foundNombre = e.target.parentNode.children[1].innerText
     carrito = carrito.filter((carritoId) => {
-        return carritoId !== foundNombre;
+        return carritoId.nombre !== foundNombre;
     });
-
     carritoNumerito();
     saveLocal();
     pintarCarrito();
 }
+        })
+
+    carritoNumerito();
+    saveLocal();
+    pintarCarrito();}
 
 const carritoNumerito = () => {
+
     cantidadCarrito.style.display = "block";
 
-    const carritoLength = carrito.length;
+    const carritoLength = carrito.reduce((total, prod) => total + prod.cantidad, 0);
 
-    localStorage.setItem("carritoLength", JSON.stringify(carritoLength))
+    localStorage.setItem("carritoLength", carritoLength)
 
-    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+    cantidadCarrito.innerText = localStorage.getItem("carritoLength");
+
 };
-
-
-
